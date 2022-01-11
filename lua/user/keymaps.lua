@@ -14,7 +14,7 @@ keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
 -- Smooth Scrolling
-keymap("", "<C-u>", ":call smooth_scroll#up(&scrokll, 30, 2)<CR>", opts)
+keymap("", "<C-u>", ":call smooth_scroll#up(&scroll, 30, 2)<CR>", opts)
 keymap("", "<C-d>", ":call smooth_scroll#down(&scroll, 30, 2)<CR>", opts)
 keymap("", "<C-b>", ":call smooth_scroll#up(&scroll*2, 30, 2)<CR>", opts)
 keymap("", "<C-f>", ":call smooth_scroll#down(&scroll*2, 30, 2)<CR>", opts)
