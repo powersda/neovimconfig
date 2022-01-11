@@ -1,0 +1,1 @@
+/home/pwrhs/dotfiles/.config/nvim/init.vim
