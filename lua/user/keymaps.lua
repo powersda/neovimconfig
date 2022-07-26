@@ -1,31 +1,47 @@
-local opts = { noremap = true, silent = true }
-local keymap = vim.api.nvim_set_keymap
-
-keymap("n", "<CR>", ":noh<CR>", opts) -- press enter to get rid of search highlighting
+-- Misc
+vim.keymap.set("n", "<CR>", ":noh<CR>", { silent = true }); -- press enter to get rid of search highlighting
 
 -- Navigate buffers
-keymap("n", "<C-l>", ":bnext<CR>", opts)
-keymap("n", "<C-h>", ":bprevious<CR>", opts)
+vim.keymap.set("n", "<C-l>", ":bnext<CR>");
+vim.keymap.set("n", "<C-h>", ":bprevious<CR>");
 
 -- Resize with arrows
-keymap("n", "<C-Up>", ":resize +2<CR>", opts)
-keymap("n", "<C-Down>", ":resize -2<CR>", opts)
-keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
-
--- Smooth Scrolling
-keymap("", "<C-u>", ":call smooth_scroll#up(&scroll, 30, 2)<CR>", opts)
-keymap("", "<C-d>", ":call smooth_scroll#down(&scroll, 30, 2)<CR>", opts)
-keymap("", "<C-b>", ":call smooth_scroll#up(&scroll*2, 30, 2)<CR>", opts)
-keymap("", "<C-f>", ":call smooth_scroll#down(&scroll*2, 30, 2)<CR>", opts)
+vim.keymap.set("n", "<C-Up>", ":resize +2<CR>");
+vim.keymap.set("n", "<C-Down>", ":resize -2<CR>");
+vim.keymap.set("n", "<C-Left>", ":vertical resize -2<CR>");
+vim.keymap.set("n", "<C-Right>", ":vertical resize +2<CR>");
 
 -- Nvim-Tree
-keymap("n", "<C-n>", ":NvimTreeToggle<CR>", opts)
-keymap("n", "<leader>r", "NvimTreeRefresh<CR>", opts)
-keymap("n", "<leader>n", "NvimTreeFindFile<CR>", opts)
+vim.keymap.set("n", "<C-n>", ":NvimTreeToggle<CR>");
+vim.keymap.set("n", "<leader>r", ":NvimTreeRefresh<CR>");
+vim.keymap.set("n", "<leader>n", ":NvimTreeFindFile<CR>");
+
+-- Nvim-Transparent
+vim.keymap.set("n", "<leader>c", ":TransparentToggle<CR>", { silent = true });
 
 -- Telescope
-keymap("n", "<leader>f", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
-keymap("n", "<leader>t", "<cmd>Telescope live_grep<cr>", opts)
+vim.keymap.set("n", "<leader>t", ":Telescope <CR>");
+vim.keymap.set("n", "<leader>ff", ":Telescope find_files<CR>");
+vim.keymap.set("n", "<leader>fg", ":Telescope live_grep<CR>");
+vim.keymap.set("n", "<leader>fb", ":Telescope buffers<CR>");
+vim.keymap.set("n", "<leader>fh", ":Telescope help_tags<CR>");
 
-
+-- LSP
+local opts = { noremap = true, silent = true }
+vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
+vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
+vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
+vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
+vim.keymap.set('n', '<space>wl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, opts)
+vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
+vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
+vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, opts)
+vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, opts)

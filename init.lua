@@ -1,14 +1,15 @@
-require "user.options"
-require "user.plugins"
-require "user.keymaps"
-require "user.colorscheme"
-require "user.treesitter"
-require "user.lsp"
-require "user.vimwiki"
-require "user.cmp"
-require "user.indentline"
-require "user.lualine"
-require "user.nvim-tree"
-require "user.comment"
-require "user.telescope"
-require "user.bufferline"
+require("user.options")
+require("user.keymaps")
+require("user.plugins")
+require("user.colourscheme")
+require("user.config.neoscroll")
+require("user.config.nvim-tree")
+require("user.config.Comment")
+require("user.config.nvim-transparent")
+require("user.config.indent-blankline")
+require("user.config.lualine")
+require("user.config.telescope")
+require("user.config.treesitter")
+require("user.config.nvim-cmp")
+require("user.lsp.mason")
+require("user.lsp.lspconfig")
