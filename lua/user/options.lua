@@ -32,3 +32,4 @@ vim.opt.title = true                            -- change title of window to fil
 vim.opt.errorbells = true                       -- no annoying error beeps
 vim.opt.guicursor = ""                          -- stop neovim from changing terminal cursor
 vim.opt.laststatus = 3                          -- global statusline
+vim.opt.cmdheight = 0                           -- command height
