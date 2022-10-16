@@ -1,6 +1,6 @@
+require("user.plugins")
 require("user.options")
 require("user.keymaps")
-require("user.plugins")
 require("user.colourscheme")
 require("user.config.neoscroll")
 require("user.config.nvim-tree")
