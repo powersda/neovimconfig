@@ -33,3 +33,4 @@ vim.opt.errorbells = true                       -- no annoying error beeps
 vim.opt.guicursor = ""                          -- stop neovim from changing terminal cursor
 vim.opt.laststatus = 3                          -- global statusline
 vim.opt.cmdheight = 0                           -- command height
+vim.opt.scrolloff = 8                           -- keep 8 lines above bottom of buffer
