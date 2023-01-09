@@ -5,7 +5,8 @@ require("transparent").setup({
 
         "MsgArea",
         "NvimTreeNormal",
-        "NvimTreeVertSplit",
+        "NvimTreeEndOfBuffer",
+        -- "NvimTreeVertSplit",
         -- "NvimTreeWinSeperator"
     },
     exclude = {}, -- table: groups you don't want to clear
