@@ -38,25 +38,46 @@ return packer.startup(function(use)
 
     -- General Plugins
 	use({ "wbthomason/packer.nvim" }) -- Have packer manage itself
-    use({ "karb94/neoscroll.nvim" })
-	use({ "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" })
-	use({ "numToStr/Comment.nvim"})
-	use({ "lukas-reineke/indent-blankline.nvim" })
-	use({ "nvim-lualine/lualine.nvim", requires = { 'kyazdani42/nvim-web-devicons', opt = true }})
-	use({ "nvim-telescope/telescope.nvim", requires = "nvim-lua/plenary.nvim" })
-    use({ "lervag/vimtex" })
+    use({ "karb94/neoscroll.nvim",
+        config = function() require("user.neoscroll") end
+    })
+	use({ "kyazdani42/nvim-tree.lua",
+        requires = "kyazdani42/nvim-web-devicons",
+        config = function() require("user.nvim-tree") end
+    })
+	use({ "numToStr/Comment.nvim",
+        config = function() require("user.Comment") end
+    })
+	use({ "lukas-reineke/indent-blankline.nvim",
+        config = function() require("user.indent-blankline") end
+    })
+	use({ "nvim-lualine/lualine.nvim",
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+        config = function() require("user.lualine") end,
+    })
+	use({ "nvim-telescope/telescope.nvim",
+        requires = "nvim-lua/plenary.nvim",
+        config = function() require("user.telescope") end,
+    })
+    use({ "lervag/vimtex",
+        config = function() require("user.vimtex") end
+    })
 	-- use({ "windwp/nvim-autopairs" })
 	-- use({ "ahmedkhalf/project.nvim" })
 
 	-- Colorschemes
-    use({ "xiyaowong/nvim-transparent" })
+    use({ "xiyaowong/nvim-transparent",
+        config = function () require("user.nvim-transparent") end
+    })
     use({ "sainnhe/sonokai" })
     use({ "lunarvim/colorschemes" })
     use({ "lunarvim/darkplus.nvim" })
     use({ "folke/tokyonight.nvim" })
 
 	-- cmp plugins
-	use({ "hrsh7th/nvim-cmp" })
+	use({ "hrsh7th/nvim-cmp",
+        config = function () require("user.nvim-cmp") end
+    })
 	use({ "hrsh7th/cmp-buffer" })
 	use({ "hrsh7th/cmp-path" })
 	use({ "saadparwaiz1/cmp_luasnip" })
@@ -68,13 +89,20 @@ return packer.startup(function(use)
 	use({ "rafamadriz/friendly-snippets" })
 
 	-- LSP
-	use({ "neovim/nvim-lspconfig" })
-    use({ "williamboman/mason.nvim" })
+	use({ "neovim/nvim-lspconfig",
+        config = function () require("user.lsp.lspconfig") end
+    })
+    use({ "williamboman/mason.nvim",
+        config = function () require("user.lsp.mason") end
+    })
     use({ "williamboman/mason-lspconfig.nvim" })
 
 
 	-- Treesitter
-	use({ "nvim-treesitter/nvim-treesitter", run = function() require('nvim-treesitter.install').update({ with_sync = true }) end })
+	use({ "nvim-treesitter/nvim-treesitter",
+        run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
+        config = function () require("user.treesitter") end
+    })
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
