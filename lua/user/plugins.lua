@@ -25,16 +25,8 @@ if not status_ok then
     return
 end
 
--- Initialize packer options
--- Have packer use a popup window
-packer.init({
-    display = {
-        open_fn = function() return require("packer.util").float({ border = "rounded" }) end,
-    },
-})
-
 -- Install your plugins here
-return packer.startup(function(use)
+return packer.startup({function(use)
 
     -- General Plugins
 	use({ "wbthomason/packer.nvim" }) -- Have packer manage itself
@@ -90,10 +82,10 @@ return packer.startup(function(use)
 
 	-- LSP
 	use({ "neovim/nvim-lspconfig",
-        config = function () require("user.lsp.lspconfig") end
+        config = function () require("user.lspconfig") end
     })
     use({ "williamboman/mason.nvim",
-        config = function () require("user.lsp.mason") end
+        config = function () require("user.mason") end
     })
     use({ "williamboman/mason-lspconfig.nvim" })
 
@@ -109,4 +101,12 @@ return packer.startup(function(use)
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
 	end
-end)
+end,
+config = {
+    profile = {
+        enable = true
+    },
+    display = {
+        open_fn = function() return require("packer.util").float({ border = "single" }) end
+    }
+}})
