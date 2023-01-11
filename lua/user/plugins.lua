@@ -44,15 +44,16 @@ return packer.startup(function(use)
 	use({ "lukas-reineke/indent-blankline.nvim" })
 	use({ "nvim-lualine/lualine.nvim", requires = { 'kyazdani42/nvim-web-devicons', opt = true }})
 	use({ "nvim-telescope/telescope.nvim", requires = "nvim-lua/plenary.nvim" })
+    use({ "lervag/vimtex" })
 	-- use({ "windwp/nvim-autopairs" })
 	-- use({ "ahmedkhalf/project.nvim" })
 
 	-- Colorschemes
-    use ({ "xiyaowong/nvim-transparent" })
-    use ({ "sainnhe/sonokai" })
-    use ({ "lunarvim/colorschemes" })
-    use ({ "lunarvim/darkplus.nvim" })
-    use ({ "folke/tokyonight.nvim" })
+    use({ "xiyaowong/nvim-transparent" })
+    use({ "sainnhe/sonokai" })
+    use({ "lunarvim/colorschemes" })
+    use({ "lunarvim/darkplus.nvim" })
+    use({ "folke/tokyonight.nvim" })
 
 	-- cmp plugins
 	use({ "hrsh7th/nvim-cmp" })
