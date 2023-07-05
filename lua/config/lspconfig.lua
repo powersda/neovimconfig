@@ -51,7 +51,7 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 -- Attach configurations to servers
 for _, server in ipairs(servers) do
-    local status_ok, settings = pcall(require, "user/lsp/settings/" .. server)
+    local status_ok, settings = pcall(require, "lsp/settings/" .. server)
     require('lspconfig')[server].setup({
         -- on_attach = on_attach,
         -- flags = lsp_flags,

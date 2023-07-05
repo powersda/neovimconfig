@@ -42,6 +42,7 @@ require("lazy").setup({
         config = function() require("config.chatgpt") end,
         event = "VeryLazy",
     },
+    { "m4xshen/hardtime.nvim", opts = {} },
 
     -- Colorschemes
     { "svermeulen/text-to-colorscheme.nvim",
@@ -67,7 +68,11 @@ require("lazy").setup({
     { "hrsh7th/cmp-nvim-lua" },
 
     -- snippets
-    { "L3MON4D3/LuaSnip" },
+    { "L3MON4D3/LuaSnip",
+        version = "<CurrentMajor>.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+        build = "make install_jsregexp",
+        lazy = true  -- Loaded by nvim-cmp
+    },
     { "rafamadriz/friendly-snippets" },
     
     -- LSP
