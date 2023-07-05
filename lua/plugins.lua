@@ -37,8 +37,17 @@ require("lazy").setup({
         dependencies = "nvim-lua/plenary.nvim",
         config = function() require("config.telescope") end,
     },
+    { "jackMort/ChatGPT.nvim",
+        dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" },
+        config = function() require("config.chatgpt") end,
+        event = "VeryLazy",
+    },
 
     -- Colorschemes
+    { "svermeulen/text-to-colorscheme.nvim",
+        config = function () require("config.text-to-colorscheme") end,
+        cmd = "T2CGenerate"
+    },
     { "xiyaowong/nvim-transparent",
         config = function () require("config.nvim-transparent") end
     },
