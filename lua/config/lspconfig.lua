@@ -1,5 +1,5 @@
 -- Servers to configure
-local servers = { "clangd", "sumneko_lua", "pyright", "bashls" }
+local servers = { "lua_ls", "pyright", "bashls" }
 
 -- Key Mappings
 -- local on_attach = function(_, bufnr)

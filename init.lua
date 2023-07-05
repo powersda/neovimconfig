@@ -1,4 +1,4 @@
-require("user.options")
-require("user.plugins")
-require("user.colourscheme")
-require("user.keymaps")
+require("options")
+require("plugins")
+require("colourscheme")
+require("keymaps")
