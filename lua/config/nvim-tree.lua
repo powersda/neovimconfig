@@ -10,7 +10,9 @@ require("nvim-tree").setup({
     -- open_on_setup_file = false,
     open_on_tab = false,
     ignore_buf_on_tab_change = {},
-    sort_by = "case-sensitive",
+    sort = {
+        sorter = "case_sensitive",
+    },
     root_dirs = {},
     prefer_startup_root = false,
     sync_root_with_cwd = false,
@@ -21,18 +23,11 @@ require("nvim-tree").setup({
         centralize_selection = false,
         width = 30,
         -- height = 30,
-        hide_root_folder = false,
         side = "left",
         preserve_window_proportions = false,
         number = false,
         relativenumber = false,
         signcolumn = "yes",
-        mappings = {
-            custom_only = false,
-            list = {
-                -- user mappings go here
-            },
-        },
     },
     renderer = {
         add_trailing = false,

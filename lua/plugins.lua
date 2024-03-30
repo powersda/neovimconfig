@@ -16,18 +16,20 @@ require("lazy").setup({
 
     -- General
     { "folke/lazy.nvim" },
-    { "karb94/neoscroll.nvim", 
-        config = function() require("config.neoscroll") end 
+    { "karb94/neoscroll.nvim",
+        config = function() require("config.neoscroll") end
     },
-    { "kyazdani42/nvim-tree.lua", 
+    { "kyazdani42/nvim-tree.lua",
         dependencies = "kyazdani42/nvim-web-devicons" ,
         config = function() require("config.nvim-tree") end,
     },
     { "numToStr/Comment.nvim",
-        config = function() require("config.Comment") end 
+        config = function() require("config.Comment") end
     },
-    { "lukas-reineke/indent-blankline.nvim", 
-        config = function() require("config.indent-blankline") end 
+    { "lukas-reineke/indent-blankline.nvim",
+        config = function() require("config.indent-blankline") end,
+        main = "ibl",
+        opts = {}
     },
     { "nvim-lualine/lualine.nvim",
         dependencies = { 'kyazdani42/nvim-web-devicons' },
@@ -56,34 +58,28 @@ require("lazy").setup({
     { "lunarvim/colorschemes" },
     { "lunarvim/darkplus.nvim" },
     { "folke/tokyonight.nvim" },
-     
+    { "catppuccin/nvim" },
+
     -- cmp plugins
     { "hrsh7th/nvim-cmp",
-        config = function () require("config.nvim-cmp") end
+        config = function () require("config.nvim-cmp") end,
+        dependencies = {
+             "hrsh7th/cmp-buffer",
+             "hrsh7th/cmp-path",
+             "saadparwaiz1/cmp_luasnip",
+             "hrsh7th/cmp-nvim-lsp",
+             "hrsh7th/cmp-nvim-lua",
+             { "L3MON4D3/LuaSnip", version = "<CurrentMajor>.*", build = "make install_jsregexp" },
+             "rafamadriz/friendly-snippets",
+        }
     },
-    { "hrsh7th/cmp-buffer" },
-    { "hrsh7th/cmp-path" },
-    { "saadparwaiz1/cmp_luasnip" },
-    { "hrsh7th/cmp-nvim-lsp" },
-    { "hrsh7th/cmp-nvim-lua" },
-
-    -- snippets
-    { "L3MON4D3/LuaSnip",
-        version = "<CurrentMajor>.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-        build = "make install_jsregexp",
-        lazy = true  -- Loaded by nvim-cmp
-    },
-    { "rafamadriz/friendly-snippets" },
     
     -- LSP
     { "neovim/nvim-lspconfig",
         config = function () require("config.lspconfig") end
     },
-    { "williamboman/mason.nvim",
-        config = function () require("config.mason") end
-    },
-    { "williamboman/mason-lspconfig.nvim" },
-    
+    {'VonHeikemen/lsp-zero.nvim', branch = 'v3.x'},
+
     -- Treesitter
     { "nvim-treesitter/nvim-treesitter",
         run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,

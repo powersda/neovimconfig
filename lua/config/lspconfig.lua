@@ -1,5 +1,5 @@
 -- Servers to configure
-local servers = { "lua_ls", "pyright", "bashls" }
+local servers = { "nil_ls", "lua_ls", "pyright", "bashls" }
 
 -- Key Mappings
 -- local on_attach = function(_, bufnr)
@@ -49,9 +49,16 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.s
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
+local lsp_zero = require('lsp-zero')
+lsp_zero.on_attach(function(client, bufnr)
+  -- see :help lsp-zero-keybindings
+  -- to learn the available actions
+  lsp_zero.default_keymaps({buffer = bufnr})
+end)
+
 -- Attach configurations to servers
 for _, server in ipairs(servers) do
-    local status_ok, settings = pcall(require, "lsp/settings/" .. server)
+    local status_ok, settings = pcall(require, "config/lsp/settings/" .. server)
     require('lspconfig')[server].setup({
         -- on_attach = on_attach,
         -- flags = lsp_flags,
